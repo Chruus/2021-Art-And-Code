@@ -1,0 +1,77 @@
+class Assets{
+
+  void hill1(){
+  pushStyle();
+  fill(210);
+  beginShape();
+  vertex(0,height);
+  vertex(0,600);
+  vertex(300,525);
+  vertex(400,475);
+  vertex(500,450);
+  vertex(600,415);
+  vertex(700,400);
+  vertex(800,385);
+  vertex(900,380);
+  vertex(1000,410);
+  vertex(1100,425);
+  vertex(1200,440);
+  vertex(1300,460);
+  vertex(1400,500);
+  vertex(1500,535);
+  vertex(1600,570);
+  vertex(1700,610);
+  vertex(1800,680);
+  vertex(width,685);
+  vertex(width,height);
+  endShape();
+  popStyle();
+  }
+  void hill2(){
+  pushStyle();
+  fill(235);
+  beginShape();
+  vertex(width,100);
+  vertex(width-150,210);
+  vertex(width-300,280);
+  vertex(width-450,410);
+  vertex(width-600,470);
+  vertex(width-750,550);
+  vertex(width-900,600);
+  vertex(width-1050,675);
+  vertex(width-1200,775);
+  vertex(width-1350,850);
+  vertex(width-1350,height);
+  vertex(width,height);
+  vertex(width,500);
+  endShape();  
+  popStyle();
+  }
+  void hill3(){
+  pushStyle();
+  fill(255);
+  beginShape();
+  vertex(0,300);
+  vertex(100,350);
+  vertex(200,450);
+  vertex(300,500);
+  vertex(400,625);
+  vertex(500,700);
+  vertex(600,775);
+  vertex(700,835);
+  vertex(800,900);
+  vertex(900,985);
+  vertex(1000,1050);
+  vertex(1100,height);
+  vertex(0,height);
+  vertex(0,500);
+  endShape();
+  popStyle();
+  }
+  void mountain(int x, int y){
+    fill(125);
+    triangle(x+300,y+200,x-300,y+200,x,y-200);
+    fill(255);
+    triangle(x+75,y-100,x-75,y-100,x,y-200);
+  }
+}
