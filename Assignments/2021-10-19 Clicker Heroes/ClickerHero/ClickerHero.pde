@@ -93,6 +93,7 @@ void draw() {
     image(skelly, width/2, height/2);
     tint(255, cro);
     image(creeper, width/2, height/2);
+
     //Enemy Spawn
     if (hp<=0) {
       killed=true;
@@ -179,6 +180,7 @@ void draw() {
       }
     }
   }
+
   //Shop Menu
   if (game==false) {
     fill(shopr2, shopg2, shopb2);
@@ -191,6 +193,7 @@ void draw() {
     text("Upgrade Enemy Level: "+up2+" Points", width/2, height/4+height/80);
   }
 }
+
 void mouseClicked() {
   //Enemy Hitbox
   if (mouseX<width/2+((width/16)*3)) {
