@@ -91,6 +91,19 @@ class ChristopherPettyFish extends AnimatedObject {
     }
     return "";
   }
+  
+  String toString(){
+    return "ChristopherPettyFish";
+  }
+  
+  boolean allZoogs(){
+    for(int i = 0; i < objs.size(); i++){
+      if(!objs.get(i).toString().equals("ChristopherPettyFish"))
+        return true;
+    }
+    
+    return false;
+  }
 
   void animation() {
     if (firingAllLazers) {
@@ -172,9 +185,11 @@ class ChristopherPettyFish extends AnimatedObject {
     rectMode(CENTER);
     imageMode(CENTER);
     tint(255);
-    if (finale)finale();
+    if (allZoogs())
+      finale();
     zoog();
-    if (anim)animation();
+    if (anim)
+      animation();
     popMatrix();
     popStyle();
   }
@@ -223,36 +238,27 @@ class ChristopherPettyFish extends AnimatedObject {
   }
 
   void keyPress() {
-    if (keyPressed) {
-      if (key==' '&&anim==false&&canFireLazer) {
-        randomPlayer = (int) random(0, objs.size());
-        for (int i=0; i<1000; i++) {
-          String randomFish = objs.get(randomPlayer).toString();
-          if (checkCurrentRandom(randomFish).equals("ChristopherPettyFish"))
-            randomPlayer = (int) random(0, objs.size());
+    if (key==' '&&anim==false&&canFireLazer) {
+      randomPlayer = (int) random(0, objs.size());
+      if(checkCurrentRandom(objs.get(randomPlayer).toString()).equals("ChristopherPettyFish"))
+        return;
 
-          else {
-            anim=true;   
-            if (playSound)
-              firingMaLazer.play();
-            break;
-          }
-          if (i==objs.size()*50) {
-            finale=true;
-            break;
-          }
-        }
-      }
-      if (key=='m') {
-        playSound=!playSound;
-      }
-      if (key=='c'&&frameCount%30==0) {
-        if (code<10)
-          code++;
-        else
-          code=1;
-      }
+      anim=true;   
+      if (playSound)
+        firingMaLazer.play();
     }
+
+    if (key=='m') {
+      playSound=!playSound;
+    }
+    
+    if (key=='c'&&frameCount%30==0) {
+      if (code<10)
+        code++;
+      else
+        code=1;
+    }
+    
     if (code==8)
       firingAllLazers=true;
     else

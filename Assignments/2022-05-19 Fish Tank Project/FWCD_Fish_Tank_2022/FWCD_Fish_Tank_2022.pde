@@ -5,7 +5,7 @@ int SAND_HEIGHT = 120;
 
 void setup() {
   mhs = loadImage("capitol.jpg"); 
-  fullScreen();
+  fullScreen(P2D);
   mhs.resize(width, height-SAND_HEIGHT);
   smooth();
 
